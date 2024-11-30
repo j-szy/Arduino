@@ -1,0 +1,59 @@
+#include <Ultrasonic.h>
+
+
+int i;
+
+Ultrasonic ultrasonic(11);
+
+void setup()
+{  
+
+  Serial.begin(9600);
+}
+
+
+void loop()
+{
+  long RangeInCentimeters;
+   RangeInCentimeters = ultrasonic.MeasureInCentimeters();
+  Serial.println("Distance in centimeters:");
+  Serial.print(RangeInCentimeters);
+  Serial.println("cm");
+  delay(2000);
+
+  if (RangeInCentimeters <=3) {
+    digitalWrite (2, HIGH);
+    delay (500);
+    digitalWrite (2, LOW);
+    
+    } else if (RangeInCentimeters >= 3 && RangeInCentimeters <= 5) {
+      digitalWrite (3, HIGH);
+      delay (500);
+      digitalWrite (3, LOW);
+      
+    } else if (RangeInCentimeters >= 5 && RangeInCentimeters <= 7) {
+      digitalWrite (4, HIGH);
+      delay (500);
+      digitalWrite (4, LOW);
+
+    } else if (RangeInCentimeters >= 7 && RangeInCentimeters <= 10) {
+      digitalWrite (5, HIGH);
+      delay (500);
+      digitalWrite (5, LOW);
+
+    } else if (RangeInCentimeters >= 10 && RangeInCentimeters <= 12 ) {
+      digitalWrite (6, HIGH);
+      delay (500);
+      digitalWrite (6, LOW);
+      
+    } else if (RangeInCentimeters >= 12 && RangeInCentimeters <= 15) {
+      digitalWrite (7, HIGH);
+      delay (500);
+      digitalWrite (7, LOW);
+      
+    } else if (RangeInCentimeters <= 15) {
+      digitalWrite (8, HIGH);
+      delay (500);
+      digitalWrite (8, LOW);
+    }
+}

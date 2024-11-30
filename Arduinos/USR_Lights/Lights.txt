@@ -1,0 +1,19 @@
+int i;
+
+void setup() {
+  Serial.begin(9600);
+  for (i = 2; i <= 9; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+  Serial.println("test");
+  for (i = 2; i <= 9; i++) {
+    digitalWrite(i, HIGH);
+    delay(500);
+    digitalWrite(i, HIGH);
+    delay(500);
+  
+  }
+}
